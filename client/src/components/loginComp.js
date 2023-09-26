@@ -26,7 +26,7 @@ const LoginComponents = () => {
   const Submit = async (e) => {
     e.preventDefault();
     try {
-      const response = await Axios.post("http://localhost:3001/loginUser", loginInfo);
+      const response = await Axios.post("https://chat-drab-six-25.vercel.app/loginUser", loginInfo);
       const token = response.data.tok;
 
       const expirationDate = new Date();
@@ -46,7 +46,7 @@ const LoginComponents = () => {
 
       if(authToken) {
         Axios.defaults.headers.common["Authorization"] = `Bearer ${authToken}`;
-        const response = await Axios.get("http://localhost:3001/protectedRoute");
+        const response = await Axios.get("https://chat-drab-six-25.vercel.app/protectedRoute");
         if(response.status === 200) {
 
           setAuth(true)
